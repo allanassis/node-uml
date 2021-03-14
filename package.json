@@ -1,5 +1,5 @@
 {
-  "name": "plantuml",
+  "name": "node-uml",
   "version": "1.0.0",
   "description": "Node package for generate uml models from plantuml server",
   "homepage": "https://github.com/substack/tape",
@@ -21,7 +21,10 @@
     "uml",
     "plantuml",
     "plant",
-    "UML"
+    "UML",
+    "plantuml-js",
+    "plantumljs",
+    "node-uml"
   ],
   "license": "MIT"
 }
