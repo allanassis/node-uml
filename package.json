@@ -1,0 +1,27 @@
+{
+  "name": "plantuml",
+  "version": "1.0.0",
+  "description": "Node package for generate uml models from plantuml server",
+  "homepage": "https://github.com/substack/tape",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/tape **/*test.js"
+  },
+  "author": {
+    "name": "Allan Assis",
+    "email": "allan-bdc@hotmail.com"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "tape": "^5.2.2"
+  },
+  "keywords": [
+    "uml",
+    "plantuml",
+    "plant",
+    "UML"
+  ],
+  "license": "MIT"
+}
