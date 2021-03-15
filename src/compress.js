@@ -1,3 +1,5 @@
+/* eslint-disable no-bitwise */
+
 const { deflateRawSync } = require('zlib')
 
 /**
@@ -5,7 +7,8 @@ const { deflateRawSync } = require('zlib')
  *  to generate compressed string from plantuml text
  * */
 
-const encode6bit = (b) => {
+const encode6bit = (c) => {
+  let b = c
   if (b < 10) {
     return String.fromCharCode(48 + b)
   }
@@ -18,21 +21,21 @@ const encode6bit = (b) => {
     return String.fromCharCode(97 + b)
   }
   b -= 26
-  if (b == 0) {
+  if (b === 0) {
     return '-'
   }
-  if (b == 1) {
+  if (b === 1) {
     return '_'
   }
   return '?'
 }
 
 const append3bytes = (b1, b2, b3) => {
-  c1 = b1 >> 2
-  c2 = ((b1 & 0x3) << 4) | (b2 >> 4)
-  c3 = ((b2 & 0xf) << 2) | (b3 >> 6)
-  c4 = b3 & 0x3f
-  r = ''
+  const  c1 = b1 >> 2
+  const c2 = ((b1 & 0x3) << 4) | (b2 >> 4)
+  const c3 = ((b2 & 0xf) << 2) | (b3 >> 6)
+  const c4 = b3 & 0x3f
+  let r = ''
   r += encode6bit(c1 & 0x3f)
   r += encode6bit(c2 & 0x3f)
   r += encode6bit(c3 & 0x3f)
@@ -41,11 +44,11 @@ const append3bytes = (b1, b2, b3) => {
 }
 
 const encode64 = (data) => {
-  r = ''
-  for (i = 0; i < data.length; i += 3) {
-    if (i + 2 == data.length) {
+  let r = ''
+  for (let i = 0; i < data.length; i += 3) {
+    if (i + 2 === data.length) {
       r += append3bytes(data.charCodeAt(i), data.charCodeAt(i + 1), 0)
-    } else if (i + 1 == data.length) {
+    } else if (i + 1 === data.length) {
       r += append3bytes(data.charCodeAt(i), 0, 0)
     } else {
       r += append3bytes(
@@ -59,8 +62,8 @@ const encode64 = (data) => {
 }
 
 const compress = (umlText) => {
-  textCompressed5 = deflateRawSync(umlText).toString('latin1')
-  return encode64(textCompressed5)
+  const textCompressed = deflateRawSync(umlText).toString('latin1')
+  return encode64(textCompressed)
 }
 
 module.exports = compress
