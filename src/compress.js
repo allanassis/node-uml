@@ -31,7 +31,7 @@ const encode6bit = (c) => {
 }
 
 const append3bytes = (b1, b2, b3) => {
-  const  c1 = b1 >> 2
+  const c1 = b1 >> 2
   const c2 = ((b1 & 0x3) << 4) | (b2 >> 4)
   const c3 = ((b2 & 0xf) << 2) | (b3 >> 6)
   const c4 = b3 & 0x3f

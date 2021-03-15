@@ -5,7 +5,9 @@
   "homepage": "https://github.com/substack/tape",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/tape **/*test.js"
+    "test": "npx tape **/*test.js",
+    "format": "npx prettier --write .",
+    "lint": "npx eslint --fix src/**.js"
   },
   "author": {
     "name": "Allan Assis",
