@@ -3,6 +3,16 @@
 This package allows you to generate uml models using PlantUml text language
 without the need to have JDK in your machine.
 
+## Install
+
+```shell
+$ npm install node-uml
+```
+or
+```shell
+$ yarn add node-uml
+```
+
 ## Get started
 
 ```js
